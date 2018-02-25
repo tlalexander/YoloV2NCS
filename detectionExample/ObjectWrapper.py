@@ -26,7 +26,7 @@ class ObjectWrapper():
     def __init__(self, graphfile):
         select = 1
         self.detector = YoloDetector(select)
-        
+
         for i in range(ObjectWrapper.devNum):
             ObjectWrapper.devHandle.append(mvnc.Device(ObjectWrapper.devices[i]))
             ObjectWrapper.devHandle[i].OpenDevice()
@@ -72,7 +72,7 @@ class ObjectWrapper():
 
     def Reshape(self, out, dim):
         shape = out.shape
-        out = np.transpose(out.reshape(self.wh, int(shape[0]/self.wh)))  
+        out = np.transpose(out.reshape(self.wh, int(shape[0]/self.wh)))
         out = out.reshape(shape)
         return out
 

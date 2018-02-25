@@ -121,7 +121,7 @@ void Region::GetDetections(float* data, int c, int h, int w,
 		{
 			ibox b = boxes[i];
 
-			printf("%f %f %f %f\n", b.x, b.y, b.w, b.h);
+			//printf("%f %f %f %f\n", b.x, b.y, b.w, b.h);
 
 			int left  = (b.x-b.w/2.)*imgw;
 			int right = (b.x+b.w/2.)*imgw;
@@ -148,4 +148,3 @@ void Region::GetDetections(float* data, int c, int h, int w,
 
 	return ;
 }
-

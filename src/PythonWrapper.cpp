@@ -33,7 +33,7 @@ public:
 #endif
 		bp::list bplist = bp::list();
 		void const *buffer;
-		long buflen;
+		int buflen;
 		bool isReadBuffer = !PyObject_AsReadBuffer(obj.ptr(), &buffer, &buflen);
 		if(!isReadBuffer)
 		{
@@ -41,7 +41,7 @@ public:
 			return bplist;
 		}
 
-		float* data = (float*)buffer;                			         
+		float* data = (float*)buffer;
                 std::vector<DetectedObject> results;
 		region.GetDetections(data, c, h, w, classes, imgw, imgh, thresh, nms, blockwd, results);
 
@@ -54,7 +54,7 @@ public:
 #endif
 
 
-		
+
 		for(size_t i = 0; i < results.size(); ++i)
 		{
 			bplist.append<DetectedObject>(results[i]);
